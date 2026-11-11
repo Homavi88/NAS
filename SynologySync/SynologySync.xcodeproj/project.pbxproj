@@ -1,0 +1,433 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		45F42F94F96243EB9AF4CF5B /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F49E8C02FD844FE9E7B1F89 /* AppModel.swift */; };
+		45C726BB265048B788A3F52C /* SynologySyncApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD0B7767CAB4AC1A97DBE81 /* SynologySyncApp.swift */; };
+		59FCEDEA96214E7C9188ACEF /* NASCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF5BDF5FCFF4575AF6928EC /* NASCredentials.swift */; };
+		44740C6B53FE4C9DB269E7F1 /* NASFileItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7899DCAC2294C94A00C69DA /* NASFileItem.swift */; };
+		25B322C975D3477982B3971D /* CredentialsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CE0206DF924B9EB4DCCDD7 /* CredentialsStore.swift */; };
+		0FDB8456B7C340EE819482DB /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEB64957C0594157B99D9294 /* NetworkMonitor.swift */; };
+		DF289A2EC7634A8792797828 /* PhotoLibraryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE902297ABF2496698B98680 /* PhotoLibraryService.swift */; };
+		86D0DE8269F74FE78533D9BA /* PhotoSyncEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D881109E7F24D2A965ADD5E /* PhotoSyncEngine.swift */; };
+		5F4713268BDD4A36B7943460 /* PowerMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 851B9EA5BCC74BB08C7825B8 /* PowerMonitor.swift */; };
+		8E7A21FB22C941BD870C334A /* SyncSettingsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0A488035E8F4A4BA09C815F /* SyncSettingsStore.swift */; };
+		068AD4D2239C428E9832E6EB /* SynologyAPIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487A62BFA6674DBA9B3806F4 /* SynologyAPIModels.swift */; };
+		BA69AFA70DB54A3084EA5099 /* SynologyClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD67A33D6B941469C741846 /* SynologyClient.swift */; };
+		15E8DC23687943F2BAEA09FA /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7BB9D6646B844789B121C55 /* DesignSystem.swift */; };
+		EB5F2D1F3AD440BC938E1790 /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578D6B360184471FA137B55E /* ConnectionView.swift */; };
+		E424BE409C424F81AF60B558 /* FileBrowserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6192625748084432B92BAD3E /* FileBrowserView.swift */; };
+		1041DFFCF561465893AF082C /* FilesRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4EC29F8FA66493DA456A26F /* FilesRootView.swift */; };
+		EDAB6543398344799A23C6D1 /* FolderPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D64807D27D4B467EBAD84AC2 /* FolderPickerView.swift */; };
+		D3EB99A57DB046329FC8640C /* PhotoSyncView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AFA42DB1E474CBEA34DCED4 /* PhotoSyncView.swift */; };
+		189DAEAC2A30468EA47B6B88 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F1DF7770F3441A8A0C40FA3 /* RootView.swift */; };
+		8653398F4DEE413C92A6CF7B /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C180A5568A41F28F26D058 /* SettingsView.swift */; };
+		2A89933BAF45452AB1E23DF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0150EAE923247EEB0DA9E14 /* Assets.xcassets */; };
+		4BD27E325A9E437BBA6371DC /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 70BEC07D57434E82805C6235 /* PrivacyInfo.xcprivacy */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		30DF8338756D40EF9A484A7B /* SynologySync.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SynologySync.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F49E8C02FD844FE9E7B1F89 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		3DD0B7767CAB4AC1A97DBE81 /* SynologySyncApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynologySyncApp.swift; sourceTree = "<group>"; };
+		EDF5BDF5FCFF4575AF6928EC /* NASCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASCredentials.swift; sourceTree = "<group>"; };
+		C7899DCAC2294C94A00C69DA /* NASFileItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASFileItem.swift; sourceTree = "<group>"; };
+		81CE0206DF924B9EB4DCCDD7 /* CredentialsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsStore.swift; sourceTree = "<group>"; };
+		DEB64957C0594157B99D9294 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		BE902297ABF2496698B98680 /* PhotoLibraryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoLibraryService.swift; sourceTree = "<group>"; };
+		6D881109E7F24D2A965ADD5E /* PhotoSyncEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSyncEngine.swift; sourceTree = "<group>"; };
+		851B9EA5BCC74BB08C7825B8 /* PowerMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerMonitor.swift; sourceTree = "<group>"; };
+		C0A488035E8F4A4BA09C815F /* SyncSettingsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncSettingsStore.swift; sourceTree = "<group>"; };
+		487A62BFA6674DBA9B3806F4 /* SynologyAPIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynologyAPIModels.swift; sourceTree = "<group>"; };
+		3DD67A33D6B941469C741846 /* SynologyClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynologyClient.swift; sourceTree = "<group>"; };
+		F7BB9D6646B844789B121C55 /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
+		578D6B360184471FA137B55E /* ConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionView.swift; sourceTree = "<group>"; };
+		6192625748084432B92BAD3E /* FileBrowserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileBrowserView.swift; sourceTree = "<group>"; };
+		A4EC29F8FA66493DA456A26F /* FilesRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesRootView.swift; sourceTree = "<group>"; };
+		D64807D27D4B467EBAD84AC2 /* FolderPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderPickerView.swift; sourceTree = "<group>"; };
+		2AFA42DB1E474CBEA34DCED4 /* PhotoSyncView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSyncView.swift; sourceTree = "<group>"; };
+		4F1DF7770F3441A8A0C40FA3 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		E8C180A5568A41F28F26D058 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A0150EAE923247EEB0DA9E14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6F68C873CD4843D9A7AACEE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70BEC07D57434E82805C6235 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		21E1242AE91B41E997D47A72 /* SynologySync.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SynologySync.entitlements; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		7CAEF648663C47D3B4529BAF = {
+			isa = PBXGroup;
+			children = (
+				9630AE8B4F7A4C8BBA6EE749 /* SynologySync */,
+				801EC73DCFEF4EAAB3DC72C3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		801EC73DCFEF4EAAB3DC72C3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				30DF8338756D40EF9A484A7B /* SynologySync.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9630AE8B4F7A4C8BBA6EE749 /* SynologySync */ = {
+			isa = PBXGroup;
+			children = (
+				8E1335C97DF74E2C84A1DE50 /* App */,
+				F2FED863D63B4AECBC991E12 /* Models */,
+				88A17CF88189418985A6CF30 /* Services */,
+				8ED551C6F7494A339E9CA5C2 /* Views */,
+				728A694C369145749FA19576 /* Utilities */,
+				14C998CA60034597BC652EF6 /* Resources */,
+				21E1242AE91B41E997D47A72 /* SynologySync.entitlements */,
+			);
+			path = SynologySync;
+			sourceTree = "<group>";
+		};
+		8E1335C97DF74E2C84A1DE50 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				3DD0B7767CAB4AC1A97DBE81 /* SynologySyncApp.swift */,
+				6F49E8C02FD844FE9E7B1F89 /* AppModel.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F2FED863D63B4AECBC991E12 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EDF5BDF5FCFF4575AF6928EC /* NASCredentials.swift */,
+				C7899DCAC2294C94A00C69DA /* NASFileItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		88A17CF88189418985A6CF30 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				81CE0206DF924B9EB4DCCDD7 /* CredentialsStore.swift */,
+				DEB64957C0594157B99D9294 /* NetworkMonitor.swift */,
+				BE902297ABF2496698B98680 /* PhotoLibraryService.swift */,
+				6D881109E7F24D2A965ADD5E /* PhotoSyncEngine.swift */,
+				851B9EA5BCC74BB08C7825B8 /* PowerMonitor.swift */,
+				C0A488035E8F4A4BA09C815F /* SyncSettingsStore.swift */,
+				487A62BFA6674DBA9B3806F4 /* SynologyAPIModels.swift */,
+				3DD67A33D6B941469C741846 /* SynologyClient.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		728A694C369145749FA19576 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				F7BB9D6646B844789B121C55 /* DesignSystem.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		8ED551C6F7494A339E9CA5C2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4F1DF7770F3441A8A0C40FA3 /* RootView.swift */,
+				1FC4F47596824869A9AD5499 /* Connection */,
+				297C6EA7ADA1463EADF20B13 /* Files */,
+				85B63E2708674FAAA3D36B12 /* Photos */,
+				47B6770FF0B8471B9570A9AF /* Settings */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1FC4F47596824869A9AD5499 /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				578D6B360184471FA137B55E /* ConnectionView.swift */,
+			);
+			path = Connection;
+			sourceTree = "<group>";
+		};
+		297C6EA7ADA1463EADF20B13 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				6192625748084432B92BAD3E /* FileBrowserView.swift */,
+				A4EC29F8FA66493DA456A26F /* FilesRootView.swift */,
+			);
+			path = Files;
+			sourceTree = "<group>";
+		};
+		85B63E2708674FAAA3D36B12 /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				D64807D27D4B467EBAD84AC2 /* FolderPickerView.swift */,
+				2AFA42DB1E474CBEA34DCED4 /* PhotoSyncView.swift */,
+			);
+			path = Photos;
+			sourceTree = "<group>";
+		};
+		47B6770FF0B8471B9570A9AF /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E8C180A5568A41F28F26D058 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		14C998CA60034597BC652EF6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A0150EAE923247EEB0DA9E14 /* Assets.xcassets */,
+				6F68C873CD4843D9A7AACEE7 /* Info.plist */,
+				70BEC07D57434E82805C6235 /* PrivacyInfo.xcprivacy */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DCF0E2B0291D475DAAFC7ECB /* SynologySync */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ABF57530440A498AB7E65A51 /* Build configuration list for PBXNativeTarget "SynologySync" */;
+			buildPhases = (
+				CA494B4FA1EC409885B39681 /* Sources */,
+				7A91D11D4E0A46478838B6FA /* Frameworks */,
+				B9C3C411C35547E3A0A1DA3A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SynologySync;
+			productName = SynologySync;
+			productReference = 30DF8338756D40EF9A484A7B /* SynologySync.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DA4B845A901442938F54FE6A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					DCF0E2B0291D475DAAFC7ECB = {
+						CreatedOnToolsVersion = 16.0;
+					};
+				};
+			};
+			buildConfigurationList = F3AC91446548414FBB6CC90D /* Build configuration list for PBXProject "SynologySync" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = ru;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				ru,
+				Base,
+			);
+			mainGroup = 7CAEF648663C47D3B4529BAF;
+			productRefGroup = 801EC73DCFEF4EAAB3DC72C3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DCF0E2B0291D475DAAFC7ECB /* SynologySync */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B9C3C411C35547E3A0A1DA3A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2A89933BAF45452AB1E23DF0 /* Assets.xcassets in Resources */,
+				4BD27E325A9E437BBA6371DC /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7A91D11D4E0A46478838B6FA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CA494B4FA1EC409885B39681 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45F42F94F96243EB9AF4CF5B /* AppModel.swift in Sources */,
+				45C726BB265048B788A3F52C /* SynologySyncApp.swift in Sources */,
+				59FCEDEA96214E7C9188ACEF /* NASCredentials.swift in Sources */,
+				44740C6B53FE4C9DB269E7F1 /* NASFileItem.swift in Sources */,
+				25B322C975D3477982B3971D /* CredentialsStore.swift in Sources */,
+				0FDB8456B7C340EE819482DB /* NetworkMonitor.swift in Sources */,
+				DF289A2EC7634A8792797828 /* PhotoLibraryService.swift in Sources */,
+				86D0DE8269F74FE78533D9BA /* PhotoSyncEngine.swift in Sources */,
+				5F4713268BDD4A36B7943460 /* PowerMonitor.swift in Sources */,
+				8E7A21FB22C941BD870C334A /* SyncSettingsStore.swift in Sources */,
+				068AD4D2239C428E9832E6EB /* SynologyAPIModels.swift in Sources */,
+				BA69AFA70DB54A3084EA5099 /* SynologyClient.swift in Sources */,
+				15E8DC23687943F2BAEA09FA /* DesignSystem.swift in Sources */,
+				EB5F2D1F3AD440BC938E1790 /* ConnectionView.swift in Sources */,
+				E424BE409C424F81AF60B558 /* FileBrowserView.swift in Sources */,
+				1041DFFCF561465893AF082C /* FilesRootView.swift in Sources */,
+				EDAB6543398344799A23C6D1 /* FolderPickerView.swift in Sources */,
+				D3EB99A57DB046329FC8640C /* PhotoSyncView.swift in Sources */,
+				189DAEAC2A30468EA47B6B88 /* RootView.swift in Sources */,
+				8653398F4DEE413C92A6CF7B /* SettingsView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+
+		D99A9963EAB5441E92F9A097 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.2;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+
+		3DE0D74662FA421EB8BC08BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dwarf-obj";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 27.2;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_VERSION = 6.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+
+		83C88994362540F8BD6C7FBB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SynologySync/SynologySync.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SynologySync/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Synology Sync";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 27.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.synologysync.ios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+
+		2E5A31A008494841886B4B00 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = SynologySync/SynologySync.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = SynologySync/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Synology Sync";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 27.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.synologysync.ios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F3AC91446548414FBB6CC90D /* Build configuration list for PBXProject "SynologySync" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D99A9963EAB5441E92F9A097 /* Debug */,
+				3DE0D74662FA421EB8BC08BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ABF57530440A498AB7E65A51 /* Build configuration list for PBXNativeTarget "SynologySync" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83C88994362540F8BD6C7FBB /* Debug */,
+				2E5A31A008494841886B4B00 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DA4B845A901442938F54FE6A /* Project object */;
+}
