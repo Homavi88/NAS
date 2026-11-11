@@ -59,8 +59,9 @@ struct SettingsView: View {
                 }
 
                 Section("О приложении") {
+                    LabeledContent("Название", value: "Silica")
                     LabeledContent("Цель", value: "iPhone 17 Pro+")
-                    LabeledContent("Дизайн", value: "iOS 27.2")
+                    LabeledContent("Дизайн", value: "iOS 27.2 Liquid Glass")
                     LabeledContent("NAS", value: "Synology File Station")
                 }
             }

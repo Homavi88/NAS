@@ -1,8 +1,8 @@
-# Synology Sync
+# Silica
 
-Нативное iOS‑приложение для **iPhone 17 Pro и новее** с дизайном под **iOS 27.2**.
+Нативное iOS‑приложение для **iPhone 17 Pro и новее** с дизайном под **iOS 27.2 Liquid Glass**.
 
-Подключение к Synology NAS (локальная сеть / QuickConnect / свой URL), работа с файлами через File Station и резервное копирование фото с iPhone на NAS.
+**Silica** — лёгкий «стеклянный» клиент для Synology NAS: локальная сеть / QuickConnect / свой URL, File Station и резервное копирование Фото с iPhone.
 
 ## Возможности
 

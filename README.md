@@ -1,6 +1,6 @@
-# NAS
+# Silica
 
-Репозиторий приложения **Synology Sync** для iPhone.
+Репозиторий iOS‑приложения **Silica** для работы с Synology NAS на iPhone.
 
 Откройте проект:
 

@@ -53,7 +53,7 @@ struct LaunchSplashView: View {
                     .symbolEffect(.pulse, options: .repeating, value: pulse)
                     .onAppear { pulse = true }
 
-                Text("Synology Sync")
+                Text("Silica")
                     .font(.largeTitle.weight(.bold))
                     .foregroundStyle(IOS27Theme.ink)
 

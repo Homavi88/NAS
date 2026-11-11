@@ -44,7 +44,7 @@ struct ConnectionView: View {
                 .offset(y: appear ? 0 : 18)
             }
             .ios27ScreenBackground()
-            .navigationTitle("Synology Sync")
+            .navigationTitle("Silica")
             .navigationBarTitleDisplayMode(.large)
             .onAppear {
                 if let saved = appModel.credentialsStore.load() {
@@ -69,16 +69,17 @@ struct ConnectionView: View {
     private var hero: some View {
         GlassPanel {
             VStack(alignment: .leading, spacing: 12) {
-                Text("NAS на iPhone")
+                Text("Silica")
                     .font(.title2.weight(.bold))
                     .foregroundStyle(IOS27Theme.ink)
-                Text("Локальная сеть или QuickConnect. Файлы, загрузки и умная синхронизация Фото.")
+                Text("Ваш Synology NAS на iPhone: файлы, загрузки и умная синхронизация Фото.")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
 
                 HStack(spacing: 8) {
                     StatusChip(title: "iOS 27.2", systemImage: "iphone")
+                    StatusChip(title: "Liquid Glass", systemImage: "cube.transparent")
                     StatusChip(title: "File Station", systemImage: "externaldrive")
                 }
             }
