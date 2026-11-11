@@ -14,7 +14,7 @@ struct RootView: View {
                         FilesRootView()
                     }
 
-                    Tab("Фото", systemImage: "photo.on.rectangle.angled", value: .photos) {
+                    Tab("Фото", systemImage: "photo.stack.fill", value: .photos) {
                         PhotoSyncView()
                     }
 
@@ -22,6 +22,7 @@ struct RootView: View {
                         SettingsView()
                     }
                 }
+                .tabBarMinimizeBehavior(.onScrollDown)
                 .tint(IOS27Theme.auroraTop)
             } else {
                 ConnectionView()
@@ -40,26 +41,29 @@ private enum AppTab: Hashable {
 }
 
 struct LaunchSplashView: View {
-    @State private var pulse = false
-
     var body: some View {
         ZStack {
             IOS27Theme.meshBackground
 
-            VStack(spacing: 18) {
-                Image(systemName: "externaldrive.fill.badge.wifi")
-                    .font(.system(size: 54, weight: .semibold))
-                    .foregroundStyle(IOS27Theme.heroGradient)
-                    .symbolEffect(.pulse, options: .repeating, value: pulse)
-                    .onAppear { pulse = true }
+            VStack(spacing: 20) {
+                BrandMark(size: 88)
 
                 Text("Silica")
-                    .font(.largeTitle.weight(.bold))
+                    .font(.system(size: 42, weight: .bold, design: .rounded))
                     .foregroundStyle(IOS27Theme.ink)
 
                 Text("Подключение к NAS…")
-                    .font(.subheadline)
+                    .font(.subheadline.weight(.medium))
                     .foregroundStyle(.secondary)
+            }
+            .padding(28)
+            .background {
+                RoundedRectangle(cornerRadius: 36, style: .continuous)
+                    .fill(.clear)
+                    .glassEffect(
+                        .regular.interactive(),
+                        in: RoundedRectangle(cornerRadius: 36, style: .continuous)
+                    )
             }
         }
     }

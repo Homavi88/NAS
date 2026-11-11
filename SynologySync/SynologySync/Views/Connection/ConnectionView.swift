@@ -11,7 +11,7 @@ struct ConnectionView: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                VStack(alignment: .leading, spacing: 22) {
+                VStack(alignment: .leading, spacing: 20) {
                     hero
                     modePicker
                     fields
@@ -30,7 +30,7 @@ struct ConnectionView: View {
                                 .frame(maxWidth: .infinity)
                                 .padding(.vertical, 8)
                         } else {
-                            Text("Подключиться")
+                            Label("Подключиться", systemImage: "link.circle.fill")
                         }
                     }
                     .buttonStyle(PrimaryGlassButtonStyle())
@@ -44,8 +44,7 @@ struct ConnectionView: View {
                 .offset(y: appear ? 0 : 18)
             }
             .ios27ScreenBackground()
-            .navigationTitle("Silica")
-            .navigationBarTitleDisplayMode(.large)
+            .toolbar(.hidden, for: .navigationBar)
             .onAppear {
                 if let saved = appModel.credentialsStore.load() {
                     credentials = saved
@@ -67,23 +66,28 @@ struct ConnectionView: View {
     }
 
     private var hero: some View {
-        GlassPanel {
-            VStack(alignment: .leading, spacing: 12) {
-                Text("Silica")
-                    .font(.title2.weight(.bold))
-                    .foregroundStyle(IOS27Theme.ink)
-                Text("Ваш Synology NAS на iPhone: файлы, загрузки и умная синхронизация Фото.")
-                    .font(.subheadline)
-                    .foregroundStyle(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
+        VStack(alignment: .leading, spacing: 16) {
+            BrandMark(size: 72)
 
-                HStack(spacing: 8) {
-                    StatusChip(title: "iOS 27.2", systemImage: "iphone")
-                    StatusChip(title: "Liquid Glass", systemImage: "cube.transparent")
-                    StatusChip(title: "File Station", systemImage: "externaldrive")
-                }
+            Text("Silica")
+                .font(.system(size: 44, weight: .bold, design: .rounded))
+                .foregroundStyle(IOS27Theme.ink)
+
+            Text("Synology NAS на iPhone — файлы и умная синхронизация Фото.")
+                .font(.body)
+                .foregroundStyle(.secondary)
+                .fixedSize(horizontal: false, vertical: true)
+
+            HStack(spacing: 8) {
+                StatusChip(title: "iOS 27.2", systemImage: "iphone")
+                StatusChip(title: "Liquid Glass", systemImage: "rectangle.stack.fill")
+                StatusChip(title: "File Station", systemImage: "externaldrive.fill.badge.wifi")
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(22)
+        .background {
+            liquidGlassBackground(cornerRadius: 32)
         }
     }
 
@@ -94,43 +98,83 @@ struct ConnectionView: View {
             }
         }
         .pickerStyle(.segmented)
+        .padding(6)
+        .background {
+            Capsule(style: .continuous)
+                .fill(.clear)
+                .glassEffect(.regular.interactive(), in: Capsule())
+        }
     }
 
     private var fields: some View {
-        GlassPanel {
+        GlassPanel(cornerRadius: 30) {
             VStack(spacing: 14) {
                 switch credentials.connectionMode {
                 case .quickConnect:
-                    labeledField("QuickConnect ID", text: $credentials.quickConnectID, prompt: "your-qc-id")
+                    labeledField(
+                        "QuickConnect ID",
+                        systemImage: "globe.desk.fill",
+                        text: $credentials.quickConnectID,
+                        prompt: "your-qc-id"
+                    )
                 case .local, .customURL:
-                    labeledField("Адрес / IP", text: $credentials.host, prompt: "192.168.1.50")
+                    labeledField(
+                        "Адрес / IP",
+                        systemImage: "network",
+                        text: $credentials.host,
+                        prompt: "192.168.1.50"
+                    )
                     HStack(spacing: 12) {
-                        labeledField("Порт", text: Binding(
-                            get: { String(credentials.port) },
-                            set: { credentials.port = Int($0) ?? credentials.port }
-                        ), prompt: "5001", keyboard: .numberPad)
-                        Toggle("HTTPS", isOn: $credentials.useHTTPS)
-                            .tint(IOS27Theme.auroraTop)
+                        labeledField(
+                            "Порт",
+                            systemImage: "number",
+                            text: Binding(
+                                get: { String(credentials.port) },
+                                set: { credentials.port = Int($0) ?? credentials.port }
+                            ),
+                            prompt: "5001",
+                            keyboard: .numberPad
+                        )
+                        Toggle(isOn: $credentials.useHTTPS) {
+                            Label("HTTPS", systemImage: "lock.shield.fill")
+                                .font(.subheadline.weight(.semibold))
+                        }
+                        .tint(IOS27Theme.auroraTop)
+                        .padding(.top, 18)
                     }
                 }
 
-                labeledField("Логин DSM", text: $credentials.username, prompt: "admin")
-                SecureField("Пароль", text: $credentials.password)
-                    .textContentType(.password)
-                    .padding(12)
-                    .background(fieldBackground)
+                labeledField(
+                    "Логин DSM",
+                    systemImage: "person.crop.circle.fill",
+                    text: $credentials.username,
+                    prompt: "admin"
+                )
+
+                VStack(alignment: .leading, spacing: 6) {
+                    Label("Пароль", systemImage: "key.fill")
+                        .font(.caption.weight(.semibold))
+                        .foregroundStyle(.secondary)
+                    SecureField("Пароль", text: $credentials.password)
+                        .textContentType(.password)
+                        .padding(12)
+                        .background(fieldBackground)
+                }
             }
         }
     }
 
     private var tips: some View {
         GlassPanel {
-            VStack(alignment: .leading, spacing: 8) {
-                Label("Подсказка", systemImage: "lightbulb.fill")
-                    .font(.subheadline.weight(.semibold))
-                Text("Для локальной сети обычно порты 5000 (HTTP) или 5001 (HTTPS). Через интернет удобнее QuickConnect.")
-                    .font(.footnote)
-                    .foregroundStyle(.secondary)
+            HStack(alignment: .top, spacing: 12) {
+                LiquidGlassIcon(systemName: "lightbulb.fill", tint: .orange)
+                VStack(alignment: .leading, spacing: 6) {
+                    Text("Подсказка")
+                        .font(.subheadline.weight(.semibold))
+                    Text("Локально обычно порты 5000 (HTTP) или 5001 (HTTPS). Через интернет удобнее QuickConnect.")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+                }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         }
@@ -138,14 +182,16 @@ struct ConnectionView: View {
 
     private func labeledField(
         _ title: String,
+        systemImage: String,
         text: Binding<String>,
         prompt: String,
         keyboard: UIKeyboardType = .default
     ) -> some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text(title)
+            Label(title, systemImage: systemImage)
                 .font(.caption.weight(.semibold))
                 .foregroundStyle(.secondary)
+                .symbolRenderingMode(.hierarchical)
             TextField(prompt, text: text)
                 .keyboardType(keyboard)
                 .textInputAutocapitalization(.never)
@@ -156,8 +202,12 @@ struct ConnectionView: View {
     }
 
     private var fieldBackground: some View {
-        RoundedRectangle(cornerRadius: 12, style: .continuous)
-            .fill(Color.primary.opacity(0.04))
+        RoundedRectangle(cornerRadius: 14, style: .continuous)
+            .fill(.ultraThinMaterial)
+            .overlay {
+                RoundedRectangle(cornerRadius: 14, style: .continuous)
+                    .strokeBorder(Color.white.opacity(0.35), lineWidth: 1)
+            }
     }
 
     private func connect() async {

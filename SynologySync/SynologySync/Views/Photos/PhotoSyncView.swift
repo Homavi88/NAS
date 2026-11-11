@@ -41,11 +41,14 @@ struct PhotoSyncView: View {
     }
 
     private var statusHero: some View {
-        GlassPanel {
+        GlassPanel(cornerRadius: 30) {
             VStack(alignment: .leading, spacing: 14) {
-                Text("Резерв Фото → NAS")
-                    .font(.title2.weight(.bold))
-                    .foregroundStyle(IOS27Theme.ink)
+                HStack(spacing: 12) {
+                    LiquidGlassIcon(systemName: "photo.stack.fill", size: 20)
+                    Text("Резерв Фото → NAS")
+                        .font(.title2.weight(.bold))
+                        .foregroundStyle(IOS27Theme.ink)
+                }
 
                 Text("Фото копируются на Synology без удаления с iPhone.")
                     .font(.subheadline)
@@ -54,7 +57,7 @@ struct PhotoSyncView: View {
                 HStack(spacing: 8) {
                     StatusChip(
                         title: "\(engine.pendingCount) новых",
-                        systemImage: "photo.stack"
+                        systemImage: "photo.stack.fill"
                     )
                     StatusChip(
                         title: appModel.networkMonitor.statusTitle,
@@ -75,8 +78,9 @@ struct PhotoSyncView: View {
     private var destinationCard: some View {
         GlassPanel {
             VStack(alignment: .leading, spacing: 12) {
-                Text("Папка на NAS")
+                Label("Папка на NAS", systemImage: "folder.fill")
                     .font(.headline)
+                    .symbolRenderingMode(.hierarchical)
 
                 if settings.destinationPath.isEmpty {
                     Text("Не выбрана")
@@ -104,36 +108,43 @@ struct PhotoSyncView: View {
 
     private var conditionsCard: some View {
         GlassPanel {
-            VStack(alignment: .leading, spacing: 8) {
-                Text("Автоматическая синхронизация")
+            VStack(alignment: .leading, spacing: 10) {
+                Label("Автоматическая синхронизация", systemImage: "clock.arrow.2.circlepath")
                     .font(.headline)
+                    .symbolRenderingMode(.hierarchical)
 
-                Toggle("Включить автосинхронизацию", isOn: Binding(
+                Toggle(isOn: Binding(
                     get: { settings.autoSyncEnabled },
                     set: {
                         settings.autoSyncEnabled = $0
                         engine.evaluateAutoSync()
                     }
-                ))
+                )) {
+                    Label("Включить автосинхронизацию", systemImage: "arrow.triangle.2.circlepath")
+                }
                 .tint(IOS27Theme.auroraTop)
 
-                Toggle("Только в локальной сети (Wi‑Fi)", isOn: Binding(
+                Toggle(isOn: Binding(
                     get: { settings.requireLocalNetwork },
                     set: {
                         settings.requireLocalNetwork = $0
                         engine.evaluateAutoSync()
                     }
-                ))
+                )) {
+                    Label("Только в локальной сети (Wi‑Fi)", systemImage: "wifi")
+                }
                 .tint(IOS27Theme.auroraTop)
                 .disabled(!settings.autoSyncEnabled)
 
-                Toggle("Только при зарядке", isOn: Binding(
+                Toggle(isOn: Binding(
                     get: { settings.requireCharging },
                     set: {
                         settings.requireCharging = $0
                         engine.evaluateAutoSync()
                     }
-                ))
+                )) {
+                    Label("Только при зарядке", systemImage: "battery.100.bolt")
+                }
                 .tint(IOS27Theme.auroraTop)
                 .disabled(!settings.autoSyncEnabled)
 
@@ -150,7 +161,7 @@ struct PhotoSyncView: View {
             Button {
                 engine.startSync(manual: true)
             } label: {
-                Label("Синхронизировать сейчас", systemImage: "arrow.triangle.2.circlepath")
+                Label("Синхронизировать сейчас", systemImage: "arrow.triangle.2.circlepath.circle.fill")
             }
             .buttonStyle(PrimaryGlassButtonStyle())
 
@@ -158,7 +169,7 @@ struct PhotoSyncView: View {
                 Button(role: .cancel) {
                     engine.cancel()
                 } label: {
-                    Text("Остановить")
+                    Label("Остановить", systemImage: "stop.circle.fill")
                 }
                 .buttonStyle(SecondaryGlassButtonStyle())
             }
@@ -168,8 +179,9 @@ struct PhotoSyncView: View {
     private var activityCard: some View {
         GlassPanel {
             VStack(alignment: .leading, spacing: 10) {
-                Text("Статус")
+                Label("Статус", systemImage: "chart.line.uptrend.xyaxis")
                     .font(.headline)
+                    .symbolRenderingMode(.hierarchical)
                 Text(statusText)
                     .font(.subheadline)
                     .foregroundStyle(.secondary)

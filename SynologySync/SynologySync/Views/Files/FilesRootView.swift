@@ -16,25 +16,42 @@ struct FilesRootView: View {
                 } else if let errorMessage, shares.isEmpty {
                     ContentUnavailableView(
                         "Не удалось загрузить",
-                        systemImage: "exclamationmark.triangle",
+                        systemImage: "wifi.exclamationmark",
                         description: Text(errorMessage)
                     )
                 } else {
-                    List {
-                        Section {
+                    ScrollView {
+                        LazyVStack(spacing: 10) {
                             ForEach(shares) { share in
                                 NavigationLink(value: FileBrowserDestination.folder(path: share.path, title: share.name)) {
-                                    Label(share.name, systemImage: "externaldrive.fill")
-                                        .font(.body.weight(.medium))
+                                    HStack(spacing: 14) {
+                                        LiquidGlassIcon(systemName: share.systemImage, size: 18)
+                                        VStack(alignment: .leading, spacing: 3) {
+                                            Text(share.name)
+                                                .font(.body.weight(.semibold))
+                                                .foregroundStyle(IOS27Theme.ink)
+                                            Text(share.path)
+                                                .font(.caption)
+                                                .foregroundStyle(.secondary)
+                                        }
+                                        Spacer()
+                                        Image(systemName: "chevron.right")
+                                            .font(.footnote.weight(.semibold))
+                                            .foregroundStyle(.tertiary)
+                                    }
+                                    .padding(14)
+                                    .background { liquidGlassBackground(cornerRadius: 22) }
                                 }
+                                .buttonStyle(.plain)
                             }
-                        } header: {
-                            Text("Общие папки")
-                        } footer: {
-                            Text("Создавайте, переименовывайте, удаляйте и загружайте файлы прямо на NAS.")
                         }
+                        .padding(20)
+
+                        Text("Создавайте, переименовывайте, удаляйте и загружайте файлы прямо на NAS.")
+                            .font(.footnote)
+                            .foregroundStyle(.secondary)
+                            .padding(.horizontal, 24)
                     }
-                    .scrollContentBackground(.hidden)
                 }
             }
             .ios27ScreenBackground()
@@ -53,15 +70,12 @@ struct FilesRootView: View {
                         Task { await loadShares() }
                     } label: {
                         Image(systemName: "arrow.clockwise")
+                            .symbolRenderingMode(.hierarchical)
                     }
                 }
             }
-            .task {
-                await loadShares()
-            }
-            .refreshable {
-                await loadShares()
-            }
+            .task { await loadShares() }
+            .refreshable { await loadShares() }
         }
     }
 
