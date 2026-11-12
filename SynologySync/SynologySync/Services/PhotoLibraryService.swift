@@ -81,8 +81,8 @@ final class PhotoLibraryService: @unchecked Sendable {
     }
 
     private func preferredFileName(for asset: PHAsset, resource: PHAssetResource) -> String {
-        if !resource.filename.isEmpty {
-            return resource.filename
+        if let name = resource.filename, !name.isEmpty {
+            return name
         }
         let stamp = (asset.creationDate ?? .now).timeIntervalSince1970
         return "IMG_\(Int(stamp)).jpg"
