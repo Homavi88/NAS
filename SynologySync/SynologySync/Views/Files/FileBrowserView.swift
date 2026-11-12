@@ -93,6 +93,7 @@ struct FileBrowserView: View {
                     if !selectionMode { selectedPaths.removeAll() }
                 } label: {
                     Image(systemName: selectionMode ? "checkmark.circle.fill" : "checkmark.circle")
+                        .symbolRenderingMode(.hierarchical)
                 }
 
                 Menu {
@@ -104,17 +105,18 @@ struct FileBrowserView: View {
                     Button {
                         isImporterPresented = true
                     } label: {
-                        Label("Загрузить файл", systemImage: "square.and.arrow.up")
+                        Label("Загрузить файл", systemImage: "square.and.arrow.up.on.square")
                     }
                     if selectionMode, !selectedPaths.isEmpty {
                         Button(role: .destructive) {
                             Task { await deleteSelected() }
                         } label: {
-                            Label("Удалить выбранные", systemImage: "trash")
+                            Label("Удалить выбранные", systemImage: "trash.fill")
                         }
                     }
                 } label: {
-                    Image(systemName: "ellipsis.circle")
+                    Image(systemName: "ellipsis.circle.fill")
+                        .symbolRenderingMode(.hierarchical)
                 }
             }
         }
@@ -272,14 +274,15 @@ private struct FileRow: View {
 
     var body: some View {
         HStack(spacing: 12) {
-            Image(systemName: item.systemImage)
-                .font(.title3)
-                .foregroundStyle(item.isDirectory ? IOS27Theme.auroraTop : .secondary)
-                .frame(width: 28)
+            LiquidGlassIcon(
+                systemName: item.systemImage,
+                size: 16,
+                tint: item.isDirectory ? IOS27Theme.auroraTop : Color.secondary
+            )
 
             VStack(alignment: .leading, spacing: 2) {
                 Text(item.name)
-                    .font(.body.weight(.medium))
+                    .font(.body.weight(.semibold))
                     .lineLimit(1)
                 HStack(spacing: 8) {
                     Text(item.displaySize)
@@ -291,6 +294,6 @@ private struct FileRow: View {
                 .foregroundStyle(.secondary)
             }
         }
-        .padding(.vertical, 2)
+        .padding(.vertical, 4)
     }
 }
