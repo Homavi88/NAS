@@ -4,6 +4,18 @@
 
 **Silica** — лёгкий «стеклянный» клиент для Synology NAS: локальная сеть / QuickConnect / свой URL, File Station и резервное копирование Фото с iPhone.
 
+## Интерфейс
+
+Превью экранов в стиле iOS 27.2 Liquid Glass (по макету SwiftUI‑приложения):
+
+| Подключение | Файлы | Синхронизация Фото |
+| :---: | :---: | :---: |
+| ![Подключение](docs/screenshots/silica-connection.png) | ![Файлы](docs/screenshots/silica-files.png) | ![Синхронизация](docs/screenshots/silica-photos.png) |
+
+- **Подключение** — локальная сеть / QuickConnect / свой адрес, логин DSM  
+- **Файлы** — общие папки Synology File Station  
+- **Синхронизация** — папка на NAS, условия Wi‑Fi + зарядка, прогресс загрузки  
+
 ## Возможности
 
 - Вход в DSM и сессия File Station
