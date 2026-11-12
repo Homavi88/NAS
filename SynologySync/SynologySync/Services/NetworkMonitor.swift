@@ -5,7 +5,7 @@ import Observation
 @Observable
 @MainActor
 final class NetworkMonitor {
-    nonisolated(unsafe) private let monitor = NWPathMonitor()
+    private let monitor = NWPathMonitor()
     private let queue = DispatchQueue(label: "app.synologysync.network")
 
     private(set) var isConnected = false
