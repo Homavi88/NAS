@@ -2,7 +2,7 @@ import Foundation
 import UniformTypeIdentifiers
 
 actor SynologyClient {
-    private let session: URLSession
+    private let urlSession: URLSession
     private var apiInfoCache: [String: APIInfo] = [:]
 
     struct APIInfo: Decodable, Sendable {
@@ -17,7 +17,7 @@ actor SynologyClient {
         config.timeoutIntervalForResource = 600
         config.waitsForConnectivity = true
         // Many Synology installs use self-signed certs on LAN.
-        session = URLSession(
+        urlSession = URLSession(
             configuration: config,
             delegate: InsecureSSLDelegate(),
             delegateQueue: nil
@@ -31,7 +31,7 @@ actor SynologyClient {
 
         try await refreshAPIInfo(baseURL: baseURL)
 
-        var query: [String: String] = [
+        let query: [String: String] = [
             "api": "SYNO.API.Auth",
             "version": "3",
             "method": "login",
@@ -41,7 +41,6 @@ actor SynologyClient {
             "format": "sid"
         ]
 
-        // Prefer CGI path from query.cgi discovery when available.
         let response: SynologyAPIResponse<AuthData> = try await get(
             baseURL: baseURL,
             api: "SYNO.API.Auth",
@@ -235,7 +234,7 @@ actor SynologyClient {
 
         request.httpBody = body
 
-        let (responseData, response) = try await session.data(for: request)
+        let (responseData, response) = try await urlSession.data(for: request)
         guard let http = response as? HTTPURLResponse, (200..<300).contains(http.statusCode) else {
             throw SynologyClientError.requestFailed
         }
@@ -264,7 +263,7 @@ actor SynologyClient {
         ]
 
         guard let url = components.url else { throw SynologyClientError.invalidURL }
-        let (data, response) = try await session.data(from: url)
+        let (data, response) = try await urlSession.data(from: url)
         guard let http = response as? HTTPURLResponse, (200..<300).contains(http.statusCode) else {
             throw SynologyClientError.requestFailed
         }
@@ -289,7 +288,7 @@ actor SynologyClient {
         ]
 
         guard let requestURL = components.url else { throw SynologyClientError.invalidURL }
-        let (data, _) = try await session.data(from: requestURL)
+        let (data, _) = try await urlSession.data(from: requestURL)
         let envelope = try JSONDecoder().decode(APIInfoEnvelope.self, from: data)
         apiInfoCache = envelope.data ?? [:]
     }
@@ -310,7 +309,7 @@ actor SynologyClient {
         components.queryItems = query.map { URLQueryItem(name: $0.key, value: $0.value) }
         guard let url = components.url else { throw SynologyClientError.invalidURL }
 
-        let (data, response) = try await session.data(from: url)
+        let (data, response) = try await urlSession.data(from: url)
         guard let http = response as? HTTPURLResponse, (200..<300).contains(http.statusCode) else {
             throw SynologyClientError.requestFailed
         }
